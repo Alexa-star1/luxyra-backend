@@ -1,1 +1,17 @@
+const express = require("express");
+const cors = require("cors");
 
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("🚀 LUXYRA Backend Live");
+});
+
+app.post("/order", (req, res) => {
+  console.log("New Order:", req.body);
+  res.json({ success: true });
+});
+
+app.listen(3000, () => console.log("Server running"));
